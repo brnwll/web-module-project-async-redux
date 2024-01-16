@@ -1,8 +1,96 @@
 import React from "react";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware, compose } from "redux";
+import { thunk } from "redux-thunk";
+import JokesList from "./components/JokesList";
 import "./App.css";
 
+const mockData = [
+  {
+    type: "general",
+    setup: "Why did the barber win the race?",
+    punchline: "He took a short cut.",
+    id: 320,
+  },
+  {
+    type: "general",
+    setup: "When does a joke become a dad joke?",
+    punchline: "When it becomes apparent.",
+    id: 286,
+  },
+  {
+    type: "general",
+    setup: "Why couldn't the kid see the pirate movie?",
+    punchline: "Because it was rated arrr!",
+    id: 315,
+  },
+  {
+    type: "general",
+    setup: "What did the late tomato say to the early tomato?",
+    punchline: "I’ll ketch up",
+    id: 177,
+  },
+  {
+    type: "general",
+    setup: "Well...",
+    punchline: "That’s a deep subject.",
+    id: 65,
+  },
+  {
+    type: "general",
+    setup: "Why can't bicycles stand on their own?",
+    punchline: "They are two tired",
+    id: 5,
+  },
+  {
+    type: "general",
+    setup: "What does C.S. Lewis keep at the back of his wardrobe?",
+    punchline: "Narnia business!",
+    id: 22,
+  },
+  {
+    type: "general",
+    setup: "What did the duck say when he bought lipstick?",
+    punchline: "Put it on my bill",
+    id: 30,
+  },
+  {
+    type: "general",
+    setup: "You see, mountains aren't just funny.",
+    punchline: "They are hill areas.",
+    id: 408,
+  },
+  {
+    type: "general",
+    setup: "What did the pirate say on his 80th birthday?",
+    punchline: "Aye Matey!",
+    id: 183,
+  },
+];
+
+const initialState = {
+  jokes: mockData,
+  error: "",
+  isFetching: false,
+};
+
+export const reducer = (state = initialState, action) => {
+  return state;
+};
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
+
 function App() {
-  return <div className="App">Async Redux Project</div>;
+  return (
+    <Provider store={store}>
+      <div className="App">
+        <h1>Random Joke Generator</h1>
+        <button>Get Joke</button>
+        <JokesList />
+      </div>
+    </Provider>
+  );
 }
 
 export default App;
