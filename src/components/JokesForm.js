@@ -2,18 +2,17 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchJokes } from "../actions/jokesActions";
 
-const JokesForm = ({ formButtonText, fetchJokes }) => {
+const JokesForm = ({ formButtonText, fetchJokes, isFetching }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     fetchJokes();
   };
 
-  // MVP is just a button that fetches a joke
-  // time permitting you may add additional functionality
-  // such as a number input that allows you to fetch multiple jokes
   return (
     <form onSubmit={handleSubmit}>
-      <button>{formButtonText}</button>
+      <button className="formButton" disabled={isFetching}>
+        {formButtonText}
+      </button>
     </form>
   );
 };

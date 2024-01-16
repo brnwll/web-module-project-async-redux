@@ -1,38 +1,87 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+input[type="button"] {
+  outline: none !important;
+  box-shadow: none !important;
+}
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100vh;
+  width: 100vw;
+  color: #01027b;
+  background-color: #ffd76a;
+}
+h1 {
+  font-size: 3rem;
+  margin: 2rem 0;
+  padding: 0;
+}
+.formButton {
+  height: 3rem;
+  margin-bottom: 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
   color: white;
+  background-color: #01027b;
+  border: none;
+  transition: 0.25s;
 }
-
-.App-link {
-  color: #61dafb;
+.formButton:hover {
+  background-color: #0101d1;
+  transition: 0.25s;
+  font-size: 110%;
+  font-weight: bold;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ul {
+  list-style-type: none;
+  padding: 0 2rem;
+}
+.joke {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.joke h3 {
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+}
+.revealPunch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem;
+  font-size: 3rem;
+  width: 6rem;
+  height: 6rem;
+  background-color: #ec833f;
+  border-radius: 3rem;
+  border: 5px solid #ec833f;
+  color: white;
+  font-weight: bold;
+  transition: 0.25s;
+  outline: none;
+}
+.revealPunch:hover {
+  background-color: #ff6600;
+  border: 5px solid white;
+  font-size: 5rem;
+  transition: 0.25s;
+}
+.punchline {
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+.emojis {
+  font-size: 2rem;
+  margin: 2rem;
+  padding: 0;
 }

@@ -8,14 +8,19 @@ const Joke = ({ joke }) => {
   };
 
   return (
-    <div>
+    <div className="joke">
       <h3>{joke.setup}</h3>
       {!displayPunch && (
-        <button id="revealPunch" onClick={handleClick}>
-          ❓
+        <button className="revealPunch" onClick={handleClick}>
+          ?
         </button>
       )}
-      {displayPunch && <p>{joke.punchline}</p>}
+      {displayPunch && (
+        <h4 className="punchline">
+          <div className="emojis">🤣 🤭 😹 😆 😂</div>
+          <div>{joke.punchline}</div>
+        </h4>
+      )}
     </div>
   );
 };
