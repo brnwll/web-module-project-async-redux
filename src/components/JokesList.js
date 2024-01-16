@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import Joke from "./Joke";
 
 const JokesList = ({ jokes, isFetching, error }) => {
   if (isFetching) {
@@ -13,7 +14,9 @@ const JokesList = ({ jokes, isFetching, error }) => {
   return (
     <ul>
       {jokes.map((joke) => (
-        <li key={joke.id}>{joke.setup}</li>
+        <li key={joke.id}>
+          <Joke joke={joke} />
+        </li>
       ))}
     </ul>
   );
